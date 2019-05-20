@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="org.tang.system.mapper.MenuMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="menuResultMap" type="org.tang.system.model.Menu">
+		<result column="id" property="id" />
+		<result column="kind" property="kind" />
+		<result column="name" property="name" />
+		<result column="code" property="code" />
+		<result column="parent_id" property="parentId" />
+		<result column="alias" property="alias" />
+		<result column="tab" property="tab" />
+		<result column="url" property="url" />
+		<result column="source" property="source" />
+		<result column="sort" property="sort" />
+		<result column="classify" property="classify" />
+		<result column="icon" property="icon" />
+		<result column="logo" property="logo" />
+		<result column="remark" property="remark" />
+		<result column="status" property="status" />
+		<result column="parent_code" property="parentCode" />
+	</resultMap>
+	
+	<select id="selectButtons" parameterType="java.util.Map" resultMap="menuResultMap">
+		SELECT * from blade_menu a where a.status=1 and a.kind=2 
+		<if test="parentId != null">
+			and a.parent_id=#{parentId}
+		</if>		
+		and EXISTS(
+			SELECT 1 from blade_role_menu b where b.status=1
+			and b.menu_id=a.id and b.role_id in
+			<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+		       #{item}
+		   	</foreach>
+		)	
+	</select>
+	
+	<select id="selectMenusByIds" parameterType="java.util.List" resultMap="menuResultMap">
+		SELECT * from blade_menu a where a.status=1 and a.kind=1
+		and a.id in
+		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+	       #{item}
+	   	</foreach>	
+	</select>
+
+</mapper>

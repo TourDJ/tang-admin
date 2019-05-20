@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tang.system.mapper.RoleMenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleMenuResultMap" type="org.tang.system.model.RoleMenu">
+        <result column="id" property="id"/>
+        <result column="menu_id" property="menuId"/>
+        <result column="role_id" property="roleId"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="status" property="status"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+	<select id="selectMenusByRoles" parameterType="java.util.List" resultMap="roleMenuResultMap">
+		SELECT a.id, a.menu_id, a.role_id from blade_role_menu a where a.status=1 
+		and a.role_id in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>  
+		ORDER BY role_id
+	</select>
+
+
+</mapper>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.tang.system.mapper.RoleMapper">
+<mapper namespace="org.yellowsneakers.business.system.mapper.RoleMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="roleResultMap" type="org.tang.system.model.Role">
+    <resultMap id="roleResultMap" type="org.yellowsneakers.business.system.model.Role">
         <result column="id" property="id"/>
         <result column="parent_id" property="parentId"/>
         <result column="name" property="name"/>

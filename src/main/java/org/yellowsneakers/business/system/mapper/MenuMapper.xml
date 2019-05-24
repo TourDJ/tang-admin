@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
-	namespace="org.tang.system.mapper.MenuMapper">
+	namespace="org.yellowsneakers.business.system.mapper.MenuMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="menuResultMap" type="org.tang.system.model.Menu">
+	<resultMap id="menuResultMap" type="org.yellowsneakers.business.system.model.Menu">
 		<result column="id" property="id" />
 		<result column="kind" property="kind" />
 		<result column="name" property="name" />

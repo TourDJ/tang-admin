@@ -13,21 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+package org.yellowsneakers.generic.utils;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
- *
+ * @since  1.0 
  */
-@SpringBootApplication
-public class Application {
+public class ObjectUtils extends org.springframework.util.ObjectUtils {
 
-	public static void main(String[] args) {
-		System.setProperty("rubber.env", "dev");
-		SpringApplication.run(Application.class, args);
-	}
+    private static Object obj = new Object();
+
+    /**
+     * 返回一个空对象
+     * @return
+     */
+    public static Object newObj() {
+        return obj;
+    }
+
 }

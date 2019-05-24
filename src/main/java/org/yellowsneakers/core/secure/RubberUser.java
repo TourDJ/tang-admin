@@ -13,21 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.core.secure;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.io.Serializable;
 
-/**
- * The launcher of the application.
- * @author tang
- *
- */
-@SpringBootApplication
-public class Application {
+import lombok.Data;
 
-	public static void main(String[] args) {
-		System.setProperty("rubber.env", "dev");
-		SpringApplication.run(Application.class, args);
-	}
+@Data
+public class RubberUser implements Serializable {
+	
+	private static final long serialVersionUID = 3010206896778770908L;
+
+	private Integer userId;
+    
+    /**
+     * 昵称
+     */
+    private String username;
+    
+    /**
+     * 账号
+     */
+    private String account;
+    
+    /**
+     * 角色id
+     */
+    private String roleId;
+    
+    /**
+     * 角色名
+     */
+    private String roleName;
 }

@@ -13,21 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.generic.utils.date;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
- *
+ * @since  1.0 
  */
-@SpringBootApplication
-public class Application {
+public interface DateBasic {
 
-	public static void main(String[] args) {
-		System.setProperty("rubber.env", "dev");
-		SpringApplication.run(Application.class, args);
-	}
+	/**
+	 * 获得日期格式化或者转换的格式
+	 * 
+	 * @return {@link java.text.SimpleDateFormat}兼容的格式
+	 */
+	String getPattern();
+
+	/**
+	 * 获得时区
+	 * 
+	 * @return {@link TimeZone}
+	 */
+	TimeZone getTimeZone();
+
+	/**
+	 * 获得 日期地理位置
+	 * 
+	 * @return {@link Locale}
+	 */
+	Locale getLocale();
+	
 }

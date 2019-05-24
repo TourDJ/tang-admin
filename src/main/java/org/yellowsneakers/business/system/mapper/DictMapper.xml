@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.tang.system.mapper.DictMapper">
+<mapper namespace="org.yellowsneakers.business.system.mapper.DictMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="dictResultMap" type="org.tang.system.model.Dict">
+    <resultMap id="dictResultMap" type="org.yellowsneakers.business.system.model.Dict">
         <result column="id" property="id"/>
         <result column="status" property="status"/>
         <result column="code" property="code"/>

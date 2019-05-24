@@ -13,21 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.core.mybatisplus;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.apache.ibatis.reflection.MetaObject;
+
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
  *
  */
-@SpringBootApplication
-public class Application {
+@Slf4j
+public class RubberMetaObjectHandler implements MetaObjectHandler {
 
-	public static void main(String[] args) {
-		System.setProperty("rubber.env", "dev");
-		SpringApplication.run(Application.class, args);
+	@Override
+	public void insertFill(MetaObject metaObject) {
+		log.debug("insert fill");
 	}
+
+	@Override
+	public void updateFill(MetaObject metaObject) {
+		log.debug("update fill");
+	}
+
 }

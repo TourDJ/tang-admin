@@ -13,21 +13,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.boot;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
- *
+ * @since  1.0 
  */
-@SpringBootApplication
-public class Application {
+@Getter
+@Setter
+@ConfigurationProperties("rubber.async")
+public class RubberAsyncProperties {
 
-	public static void main(String[] args) {
-		System.setProperty("rubber.env", "dev");
-		SpringApplication.run(Application.class, args);
-	}
+	/**
+	 * 异步核心线程数，默认：2
+	 */
+	private int corePoolSize = 2;
+	/**
+	 * 异步最大线程数，默认：50
+	 */
+	private int maxPoolSize = 50;
+	/**
+	 * 队列容量，默认：10000
+	 */
+	private int queueCapacity = 10000;
+	/**
+	 * 线程存活时间，默认：300
+	 */
+	private int keepAliveSeconds = 300;
+	
 }

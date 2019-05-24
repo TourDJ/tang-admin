@@ -13,21 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.boot.upload;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.lang.Nullable;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * The launcher of the application.
+ * 文件上传配置
  * @author tang
- *
+ * @since  1.0 
  */
-@SpringBootApplication
-public class Application {
+@Getter
+@Setter
+@ConfigurationProperties("rubber.upload.headers")
+public class RubberUploadProperties {
 
-	public static void main(String[] args) {
-		System.setProperty("rubber.env", "dev");
-		SpringApplication.run(Application.class, args);
-	}
+	/**
+	 * 文件保存目录，默认：jar 包同级目录
+	 */
+	@Nullable
+	private String savePath = Paths.getJarPath();
 }

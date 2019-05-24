@@ -13,21 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.core.secure;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.yellowsneakers.core.http.StatusInfo;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
  *
  */
-@SpringBootApplication
-public class Application {
+public class SecureException extends RuntimeException {
 
-	public static void main(String[] args) {
-		System.setProperty("rubber.env", "dev");
-		SpringApplication.run(Application.class, args);
+	private static final long serialVersionUID = 8670823209429366092L;
+
+	public SecureException(String message) {
+		super(message);
 	}
+	
+	public SecureException(StatusInfo statusInfo) {
+        super(statusInfo.getMessage());
+    }
+	
 }

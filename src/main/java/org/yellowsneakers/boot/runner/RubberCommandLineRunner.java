@@ -13,19 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.boot.runner;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
- *
+ * @since  1.0 
  */
-@SpringBootApplication
-public class Application {
+@Order(1)
+@Component
+public class RubberCommandLineRunner implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		RubberSpringApplication.run(Application.class, args);
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("==============================");
+		for (int i = 0; i < args.length; i++) {
+			System.out.println(args[i]);
+		}
 	}
+
 }

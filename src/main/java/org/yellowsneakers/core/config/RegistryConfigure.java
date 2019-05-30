@@ -13,20 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.core.config;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.yellowsneakers.boot.runner.RubberSpringApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
- *
+ * @since  1.0 
  */
-@SpringBootApplication
-public class Application {
+@Configuration
+public class RegistryConfigure implements WebMvcConfigurer {
 
-	public static void main(String[] args) {
-		RubberSpringApplication.run(Application.class, args);
+	@Bean
+	@ConditionalOnMissingBean(SecureRegistry.class)
+	public SecureRegistry secureRegistry() {
+		return new SecureRegistry();
 	}
 }

@@ -19,8 +19,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.yellowsneakers.boot.runner.AppConstants;
 import org.yellowsneakers.core.mybatisplus.RubberMetaObjectHandler;
-import org.yellowsneakers.core.runner.AppConstants;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;

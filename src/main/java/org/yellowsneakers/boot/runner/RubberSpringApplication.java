@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.boot.runner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,11 +27,10 @@ import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.SimpleCommandLinePropertySource;
 import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.env.SystemEnvironmentPropertySource;
-import org.yellowsneakers.core.runner.AppConstants;
 import org.yellowsneakers.generic.utils.StringUtils;
 
 /**
- * 
+ * Spring application bootstrap implementation.
  * @author tang
  * @since 1.0
  */

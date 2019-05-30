@@ -19,8 +19,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.yellowsneakers.boot.runner.RubberProperties;
 import org.yellowsneakers.core.env.SystemEnv;
-import org.yellowsneakers.core.runner.RubberProperties;
 import org.yellowsneakers.core.secure.AuthAspect;
 
 import lombok.AllArgsConstructor;

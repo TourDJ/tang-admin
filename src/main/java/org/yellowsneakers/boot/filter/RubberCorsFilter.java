@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers;
+package org.yellowsneakers.boot.filter;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.yellowsneakers.boot.runner.RubberSpringApplication;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 /**
- * The launcher of the application.
+ * 
  * @author tang
- *
+ * @since  1.0 
  */
-@SpringBootApplication
-public class Application {
+public class RubberCorsFilter extends CorsFilter {
 
-	public static void main(String[] args) {
-		RubberSpringApplication.run(Application.class, args);
+	public RubberCorsFilter(CorsConfigurationSource configSource) {
+		super(configSource);
 	}
+
 }

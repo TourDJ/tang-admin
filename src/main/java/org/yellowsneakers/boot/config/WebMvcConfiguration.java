@@ -26,7 +26,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.yellowsneakers.boot.TokenArgumentResolver;
-import org.yellowsneakers.boot.upload.RubberUploadProperties;
+import org.yellowsneakers.core.upload.RubberUploadProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

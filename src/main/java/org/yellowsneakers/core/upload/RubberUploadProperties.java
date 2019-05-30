@@ -13,15 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.yellowsneakers.core.config.server;
+package org.yellowsneakers.core.upload;
 
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.lang.Nullable;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * 
+ * 文件上传配置
  * @author tang
- *
+ * @since  1.0 
  */
-public class TomcatConfig extends TomcatServletWebServerFactory {
-	
+@Getter
+@Setter
+@ConfigurationProperties("rubber.upload.headers")
+public class RubberUploadProperties {
+
+	/**
+	 * 文件保存目录，默认：jar 包同级目录
+	 */
+	@Nullable
+	private String savePath = Paths.getJarPath();
 }
